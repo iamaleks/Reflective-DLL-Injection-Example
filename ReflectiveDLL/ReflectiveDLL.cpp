@@ -206,7 +206,7 @@ extern "C" __declspec(dllexport) void ReflectiveLoader(VOID) {
 			if (pImageThunkData->u1.Ordinal & 0x8000000000000000) {
 				// Import is by ordinal
 			
-				FARPROC resolvedImportAddress = GetProcAddress(hCurrentDLLModule, MAKEINTRESOURCEA(pImageThunkData->u1.Ordinal));
+				FARPROC resolvedImportAddress = pGetProcAddressAddress(hCurrentDLLModule, MAKEINTRESOURCEA(pImageThunkData->u1.Ordinal));
 
 				if (resolvedImportAddress == NULL) {
 					return;
